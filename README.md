@@ -8,15 +8,14 @@ It would be beneficial to either use a fitting environment or set up a project-s
 ### Conda
 
 ```bash
-conda create -n project_name python=3.11
-conda activate project_name
-pip install -r requirements.txt
+conda create -n sc_mechinterp python=3.9
+conda activate sc_mechinterp
+
+#pip install -r requirements.txt
 ```
 
-### Install the package (if applicable)
-
-To install the package, run the following command in the root directory of the project:
+### Get the necessary sc packages
 
 ```bash
-python -m pip install .
+pip install multiDGD@git+https://github.com/Center-for-Health-Data-Science/multiDGD
 ```
