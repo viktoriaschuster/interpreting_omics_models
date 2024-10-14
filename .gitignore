@@ -161,7 +161,7 @@ cython_debug/
 
 # larger files
 03_results/
-01_data/
+#01_data/
 
 # apple
 .DS_Store
