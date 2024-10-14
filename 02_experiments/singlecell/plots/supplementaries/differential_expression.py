@@ -211,12 +211,12 @@ p_value_threshold = 0.05
 top_genes = gene_p_values[((gene_p_values['fold_change'] < fold_change_threshold[0]) | (gene_p_values['fold_change'] > fold_change_threshold[1])) & (gene_p_values['adj_p_value'] < p_value_threshold)]['gene']
 
 ax_list.append(fig.add_subplot(gs[1, 0]))
-sns.scatterplot(data=gene_p_values, x='fold_change', y='adj_p_value', ax=ax_list[-1])
+sns.scatterplot(data=gene_p_values, x='fold_change', y='adj_p_value', ax=ax_list[-1], linewidth=0, alpha=0.5)
 ax_list[-1].set_xlabel('Fold Change')
 ax_list[-1].set_ylabel('Adjusted p-value')
 ax_list[-1].set_title(ct1)
 top_genes_indices = np.where(gene_p_values['gene'].isin(top_genes))[0]
-sns.scatterplot(data=gene_p_values.iloc[top_genes_indices], x='fold_change', y='adj_p_value', color='red', ax=ax_list[-1])
+sns.scatterplot(data=gene_p_values.iloc[top_genes_indices], x='fold_change', y='adj_p_value', color='red', ax=ax_list[-1], linewidth=0, alpha=0.5)
 ax_list[-1].legend().remove()
 
 ###
@@ -279,12 +279,12 @@ p_value_threshold = 0.05
 top_genes = gene_p_values[((gene_p_values['fold_change'] < fold_change_threshold[0]) | (gene_p_values['fold_change'] > fold_change_threshold[1])) & (gene_p_values['adj_p_value'] < p_value_threshold)]['gene']
 
 ax_list.append(fig.add_subplot(gs[2, 0]))
-sns.scatterplot(data=gene_p_values, x='fold_change', y='adj_p_value', ax=ax_list[-1])
+sns.scatterplot(data=gene_p_values, x='fold_change', y='adj_p_value', ax=ax_list[-1], linewidth=0, alpha=0.5)
 ax_list[-1].set_xlabel('Fold Change')
 ax_list[-1].set_ylabel('Adjusted p-value')
 ax_list[-1].set_title(ct1)
 top_genes_indices = np.where(gene_p_values['gene'].isin(top_genes))[0]
-sns.scatterplot(data=gene_p_values.iloc[top_genes_indices], x='fold_change', y='adj_p_value', color='red', ax=ax_list[-1])
+sns.scatterplot(data=gene_p_values.iloc[top_genes_indices], x='fold_change', y='adj_p_value', color='red', ax=ax_list[-1], linewidth=0, alpha=0.5)
 ax_list[-1].legend().remove()
 
 ###
@@ -365,12 +365,12 @@ p_value_threshold = 0.05
 top_genes = gene_p_values[((gene_p_values['fold_change'] < fold_change_threshold[0]) | (gene_p_values['fold_change'] > fold_change_threshold[1])) & (gene_p_values['adj_p_value'] < p_value_threshold)]['gene']
 
 ax_list.append(fig.add_subplot(gs[3, 0]))
-sns.scatterplot(data=gene_p_values, x='fold_change', y='adj_p_value', ax=ax_list[-1])
+sns.scatterplot(data=gene_p_values, x='fold_change', y='adj_p_value', ax=ax_list[-1], linewidth=0, alpha=0.5)
 ax_list[-1].set_xlabel('Fold Change')
 ax_list[-1].set_ylabel('Adjusted p-value')
 ax_list[-1].set_title('CD8+T')
 top_genes_indices = np.where(gene_p_values['gene'].isin(top_genes))[0]
-sns.scatterplot(data=gene_p_values.iloc[top_genes_indices], x='fold_change', y='adj_p_value', color='red', ax=ax_list[-1])
+sns.scatterplot(data=gene_p_values.iloc[top_genes_indices], x='fold_change', y='adj_p_value', color='red', ax=ax_list[-1], linewidth=0, alpha=0.5)
 ax_list[-1].legend().remove()
 
 fig.savefig(fig_dir+fig_name, bbox_inches='tight', dpi=300)
