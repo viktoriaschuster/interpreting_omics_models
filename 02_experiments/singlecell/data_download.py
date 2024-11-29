@@ -29,11 +29,12 @@ os.remove(file_name)
 model_name = 'human_bonemarrow_l20_h2-3_test50e'
 
 try:
+    import os
     from multiDGD.utils.model_loading import *
 
     # download the model file
-    get_figshare_file('/articles/23796198/files/41735907', model_name+'.pt')
+    get_figshare_file('/articles/23796198/files/41735907', '03_resuts/models/'+model_name+'.pt')
     # download the hyperparameters file
-    get_figshare_file('/articles/23796198/files/41735904', model_name+'_hyperparameters.json')
+    get_figshare_file('/articles/23796198/files/41735904', '03_resuts/models/'+model_name+'_hyperparameters.json')
 except:
     print('Could not download the model and hyperparameters file. Are you sure you installed multiDGD?')
