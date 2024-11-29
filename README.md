@@ -23,3 +23,11 @@ pip install multiDGD@git+https://github.com/Center-for-Health-Data-Science/multi
 ```bash
 pip install -r requirements.txt
 ```
+
+## Single-cell Experiments
+
+### Download data and models
+
+```bash
+python 02_experiments/singlecell/data_download.py
+```
