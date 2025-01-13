@@ -165,3 +165,12 @@ cython_debug/
 
 # apple
 .DS_Store
+
+# wandb
+wandb/
+
+# saving archive
+archive/
+
+# environment installation files
+*x86_64.sh
