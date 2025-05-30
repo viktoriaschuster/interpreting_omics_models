@@ -5,10 +5,10 @@ import anndata as ad
 import random
 import tqdm
 
-device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cuda:3' if torch.cuda.is_available() else 'cpu')
 
 # set a random seed
-seed = 0
+seed = 42
 torch.manual_seed(seed)
 torch.cuda.manual_seed(seed)
 np.random.seed(seed)
@@ -67,7 +67,7 @@ def loss_function(reconstructed, original, encoded, weights, sparsity_penalty, l
 
 # Hyperparameters
 input_size = reps.shape[1]  # Number of input neurons
-hidden_size = 10**5
+hidden_size = 10**4
 learning_rate = 1e-4
 num_epochs = 500
 batch_size = 128
@@ -133,7 +133,7 @@ pbar.close()
 print("Training complete.")
 
 # save the model
-sae_model_save_name = '03_results/models/sae_enformer_100000_l1-1e-3_lr-1e-4_500epochs'
+sae_model_save_name = '03_results/models/sae_enformer_10000_l1-1e-3_lr-1e-4_500epochs'
 torch.save(sae_model.state_dict(), sae_model_save_name+'.pt')
 
 # plot loss curve (normal) and log_scaled
