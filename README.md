@@ -1,5 +1,5 @@
 # SAEs for Biology
-This is the start of a project using sparse autoencoders (SAEs) for interpretability in biological models.
+This is the start of a project using sparse autoencoders (SAEs) for interpretability in biological models. **It is being cleaned up now for a current paper submission.**
 
 ## Environments
 

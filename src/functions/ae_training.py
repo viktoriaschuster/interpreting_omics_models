@@ -292,11 +292,33 @@ class MSELossNorm(torch.nn.Module):
         else:
             return norm_loss
 
+class AdvMSELossNorm(torch.nn.Module):
+    '''
+    This is a custom loss function that returns the mean squared error loss
+    scaled to 0-1
+    '''
+    def __init__(self, reduction='mean'):
+        super(AdvMSELossNorm, self).__init__()
+        self.reduction = reduction
+
+    def forward(self, y_pred, y_true):
+        # input shapes are (N, M)
+        loss = torch.mean((y_pred - y_true)**2, dim=1)
+        norm_loss = - (1 - ((loss - torch.min(loss)) / (torch.max(loss) - torch.min(loss))))
+        if self.reduction == 'mean':
+            return torch.mean(norm_loss)
+        elif self.reduction == 'sum':
+            return torch.sum(norm_loss)
+        else:
+            return norm_loss
+
 def get_adversarial_loss(scheme='basic'):
     if scheme == 'basic':
         return torch.nn.MSELoss(reduction='mean')
     elif scheme == 'r2':
         return r_square_loss(reduction='mean')
+    elif scheme == 'norm':
+        return AdvMSELossNorm(reduction='mean')
     else:
         raise ValueError('Unknown adversarial loss scheme: {}'.format(scheme))
 
@@ -304,6 +326,8 @@ def get_loss(scheme='basic'):
     if scheme == 'basic':
         return torch.nn.MSELoss(reduction='mean')
     elif scheme == 'r2':
+        return MSELossNorm(reduction='mean')
+    elif scheme == 'norm':
         return MSELossNorm(reduction='mean')
     else:
         raise ValueError('Unknown loss scheme: {}'.format(scheme))

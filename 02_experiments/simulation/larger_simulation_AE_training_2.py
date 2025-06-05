@@ -75,8 +75,8 @@ print('Data shape:', rna_counts.shape)
 hyperparams = {
     '20-2-narrow': {'dropout': 0.0, 'learning_rate': 1e-4, 'weight_decay': 0.001, 'batch_size': 128}, # in this style
     '20-2-wide': {'dropout': 0.0, 'learning_rate': 1e-5, 'weight_decay': 0.001, 'batch_size': 128},
-    '20-4-narrow': {'dropout': 0.0, 'learning_rate': 1e-5, 'weight_decay': 0.0, 'batch_size': 128},
-    '20-4-wide': {'dropout': 0.0, 'learning_rate': 1e-6, 'weight_decay': 1e-5, 'batch_size': 128},
+    '20-4-narrow': {'dropout': 0.0, 'learning_rate': 1e-4, 'weight_decay': 0.0, 'batch_size': 128},
+    '20-4-wide': {'dropout': 0.0, 'learning_rate': 1e-5, 'weight_decay': 1e-5, 'batch_size': 128},
     '20-6-narrow': {'dropout': 0.0, 'learning_rate': 1e-5, 'weight_decay': 1e-5, 'batch_size': 128},
     '20-6-wide': {'dropout': 0.0, 'learning_rate': 1e-6, 'weight_decay': 1e-5, 'batch_size': 512},
     '100-2-narrow': {'dropout': 0.0, 'learning_rate': 1e-4, 'weight_decay': 1e-5, 'batch_size': 128},
