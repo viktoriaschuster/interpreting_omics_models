@@ -1,5 +1,6 @@
-# SAEs for Biology
-This is the start of a project using sparse autoencoders (SAEs) for interpretability in biological models. **It is being cleaned up now for a current paper submission.**
+# Can sparse autoencoders make sense of gene expression latent variable models?
+
+This is the repository accompanying my paper "Can sparse autoencoders make sense of gene expression latent variable models?". It is has been cleaned up for the submission, which is available in branch [paper_cleanup](https://github.com/viktoriaschuster/interpreting_omics_models/tree/paper_cleanup). That branch presents a clean and minimal setup to reproduce the results of the paper. Go into the [02_experiments](https://github.com/viktoriaschuster/interpreting_omics_models/tree/paper_cleanup/02_experiments) folder to see the guide on how to run the experiments. As the paper, the code is structured around simulation and single-cell experiments. The simulation experiments are designed to test the performance of sparse autoencoders on latent variable models, while the single-cell experiments apply the methods to real-world data.
 
 ## Environments
 
@@ -12,14 +13,9 @@ conda create -n sc_mechinterp python=3.9
 conda activate sc_mechinterp
 ```
 
-For working on a server, the environment can be reproduced as follows:
-
-```bash
-conda env export -f env_no_version_numbers.yml --no-builds
-conda env create -f env_no_version_numbers.yml # worked except for multidgd cause not in pip
-```
-
 ### Get the necessary sc packages
+
+For using multiDGD, the package has to be installed before the remaining requirements.
 
 ```bash
 pip install multiDGD@git+https://github.com/Center-for-Health-Data-Science/multiDGD
@@ -31,10 +27,6 @@ pip install multiDGD@git+https://github.com/Center-for-Health-Data-Science/multi
 pip install -r requirements.txt
 ```
 
-## Single-cell Experiments
+## scFeatureLens
 
-### Download data and models
-
-```bash
-python 02_experiments/singlecell/data_download.py
-```
+The tool that I developed for this paper is available in the [scFeatureLens](https://github.com/viktoriaschuster/sc_mechinterp/tree/main/tools/scFeatureLens) repository. It is in its baby stage, so I am very happy to get feedback on any issues or desired features.
