@@ -7,8 +7,12 @@ import random
 
 device = torch.device('cuda:2' if torch.cuda.is_available() else 'cpu')
 
-# set a random seed
-seed = 9307
+# set a random with args
+import argparse
+parser = argparse.ArgumentParser(description='Set random seed for reproducibility')
+parser.add_argument('--seed', type=int, default=0, help='Random seed for reproducibility')
+args = parser.parse_args()
+seed = args.seed
 torch.manual_seed(seed)
 torch.cuda.manual_seed(seed)
 np.random.seed(seed)
